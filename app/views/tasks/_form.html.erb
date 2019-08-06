@@ -3,8 +3,10 @@
   <%= f.text_field :title %>
   <%= f.label :details %>
   <%= f.text_field :details %>
-  <%= f.label :completed %>
-  <%= f.check_box :completed%>
+  <% unless @task.new_record? %>
+    <%= f.label :completed %>
+    <%= f.check_box :completed  %>
+  <% end %>
   <%= f.submit %>
 <% end %>
 <h3><%= link_to 'Back', tasks_path(@tasks) %></h3>
